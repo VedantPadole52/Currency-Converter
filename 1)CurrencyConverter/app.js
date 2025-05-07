@@ -1,5 +1,4 @@
-const BASE_URL =
-  "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+const BASE_URL = "https://v6.exchangerate-api.com/v6/e2cbcb5776abab70f4b19d86/latest/";
 
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
@@ -8,7 +7,7 @@ const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
 for (let select of dropdowns) {
-  for (currCode in countryList) {
+  for (let currCode in countryList) {
     let newOption = document.createElement("option");
     newOption.innerText = currCode;
     newOption.value = currCode;
@@ -19,10 +18,7 @@ for (let select of dropdowns) {
     }
     select.append(newOption);
   }
-
-  select.addEventListener("change", (evt) => {
-    updateFlag(evt.target);
-  });
+  select.addEventListener("change", (evt) => updateFlag(evt.target));
 }
 
 const updateExchangeRate = async () => {
@@ -32,13 +28,23 @@ const updateExchangeRate = async () => {
     amtVal = 1;
     amount.value = "1";
   }
-  const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
-  let response = await fetch(URL);
-  let data = await response.json();
-  let rate = data[toCurr.value.toLowerCase()];
-
-  let finalAmount = amtVal * rate;
-  msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+  try {
+    // Modify the BASE_URL to use the selected "from" currency
+    let response = await fetch(`${BASE_URL}${fromCurr.value}`);
+    if (!response.ok) throw new Error("Failed to fetch data");
+    let data = await response.json();
+    if (!data.conversion_rates[fromCurr.value] || !data.conversion_rates[toCurr.value]) {
+      msg.innerText = "Exchange rate data not available.";
+      return;
+    }
+    // Now we use the rate from the "from" currency to convert to the "to" currency
+    let rate = data.conversion_rates[toCurr.value];
+    let finalAmount = amtVal * rate;
+    msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount.toFixed(2)} ${toCurr.value}`;
+  } catch (error) {
+    msg.innerText = "Failed to fetch exchange rate.";
+    console.error(error);
+  }
 };
 
 const updateFlag = (element) => {
@@ -46,7 +52,7 @@ const updateFlag = (element) => {
   let countryCode = countryList[currCode];
   let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
   let img = element.parentElement.querySelector("img");
-  img.src = newSrc;
+  if (img) img.src = newSrc;
 };
 
 btn.addEventListener("click", (evt) => {
