@@ -17,7 +17,7 @@ A responsive and user-friendly web application that allows users to convert curr
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML, CSS, JavaScript
-- **API:** [fawazahmed0/currency-api](https://github.com/fawazahmed0/currency-api)
+- **API:** ExchangeRate-API
 - **Flag Provider:** [FlagsAPI](https://flagsapi.com/)
 
 ---
