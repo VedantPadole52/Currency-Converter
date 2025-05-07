@@ -62,7 +62,7 @@ A responsive and user-friendly web application that allows users to convert curr
 ## 🙌 Acknowledgements
 
 - [FlagsAPI](https://flagsapi.com/)
-- [fawazahmed0/currency-api](https://github.com/fawazahmed0/currency-api)
+- [ExchangeRate-API](https://www.exchangerate-api.com/)
 
 ---
 
