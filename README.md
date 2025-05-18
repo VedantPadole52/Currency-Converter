@@ -1,20 +1,20 @@
-# 💱 Currency Converter
+#  Currency Converter
 
 A responsive and user-friendly web application that allows users to convert currencies in real-time using the latest exchange rates. Built with **HTML**, **CSS**, and **JavaScript**, the app fetches live data from a public API and includes country flags for a better visual experience.
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🌐 Real-time currency conversion
-- 🔁 Switch between "From" and "To" currencies
-- 🌍 Country flags displayed dynamically
-- 📱 Fully responsive and clean UI
-- 🧠 Intelligent default selection (USD to INR)
+-  Real-time currency conversion
+- Switch between "From" and "To" currencies
+- Country flags displayed dynamically
+- Fully responsive and clean UI
+- Intelligent default selection (USD to INR)
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend:** HTML, CSS, JavaScript
 - **API:** ExchangeRate-API
@@ -24,7 +24,7 @@ A responsive and user-friendly web application that allows users to convert curr
 
 
 
-## 🧩 File Structure
+##  File Structure
 
 ```
 ├── index.html         # Main HTML structure
@@ -35,7 +35,7 @@ A responsive and user-friendly web application that allows users to convert curr
 
 ---
 
-## 📦 How to Run Locally
+##  How to Run Locally
 
 1. Clone the repository:
    ```bash
@@ -51,7 +51,7 @@ A responsive and user-friendly web application that allows users to convert curr
 
 ---
 
-## 📌 Future Enhancements
+## Future Enhancements
 
 - Add currency search functionality
 - Show historical exchange rate chart
@@ -59,13 +59,13 @@ A responsive and user-friendly web application that allows users to convert curr
 
 ---
 
-## 🙌 Acknowledgements
+##  Acknowledgements
 
 - [FlagsAPI](https://flagsapi.com/)
 - [ExchangeRate-API](https://www.exchangerate-api.com/)
 
 ---
 
-## 🌐 Live Demo Link
+##  Live Demo Link
 https://currency-converter-rouge-xi-85.vercel.app/
 
