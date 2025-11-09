@@ -1,4 +1,4 @@
-#  Currency Converter.
+#  Currency Converter
 
 A responsive and user-friendly web application that allows users to convert currencies in real-time using the latest exchange rates. Built with **HTML**, **CSS**, and **JavaScript**, the app fetches live data from a public API and includes country flags for a better visual experience.
 
